@@ -1,7 +1,10 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div>55555</div>
+    <div>
+        <span>123</span>
+        <i i-mdi:airplane-clock />
+    </div>
 </template>
 
 <style scoped></style>
