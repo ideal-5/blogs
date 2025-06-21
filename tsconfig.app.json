@@ -2,6 +2,8 @@
     "extends": "@vue/tsconfig/tsconfig.dom.json",
     "compilerOptions": {
         "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+        /* ✅ 添加这个 */
+        "lib": ["ES2022", "DOM"],
 
         /* Linting */
         "strict": true,

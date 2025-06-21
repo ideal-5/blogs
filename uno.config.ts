@@ -1,4 +1,11 @@
-import { defineConfig, presetWind3, presetAttributify, presetIcons } from 'unocss'
+import {
+    defineConfig,
+    presetWind3,
+    presetAttributify,
+    presetIcons,
+    transformerDirectives,
+    transformerVariantGroup,
+} from 'unocss'
 
 export default defineConfig({
     presets: [
@@ -13,4 +20,22 @@ export default defineConfig({
             },
         }),
     ],
+    transformers: [
+        // 启用 @apply 功能
+        transformerDirectives(),
+        // 启用 () 分组功能
+        // 支持css class组合，eg: `<div class="hover:(bg-gray-400 font-medium) font-(light mono)">测试 unocss</div>`
+        transformerVariantGroup(),
+    ],
+    /**
+   * 自定义快捷语句
+   * @see https://github.com/unocss/unocss#shortcuts
+   */
+  shortcuts: [
+    ['f-c-c', 'flex justify-center items-center'],
+    ['f-c', 'flex items-center'],
+    ['f-c-w', 'flex items-center justify-between'],
+    ['wf', 'wfull'],
+    ['hf', 'hfull'],
+  ],
 })
