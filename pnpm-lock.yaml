@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@unocss/reset':
+        specifier: ^66.2.3
+        version: 66.2.3
       vue:
         specifier: ^3.5.13
         version: 3.5.16(typescript@5.8.3)
@@ -446,6 +449,9 @@ packages:
 
   '@unocss/reset@66.1.2':
     resolution: {integrity: sha512-njNy/QCpuPKBFeEvhYGwwCe3t8R8JTxONsyUB9NsFOamkF13DSlEB4Yy/QLQfIinbbmx0F/wiej/JGOJk1ecDg==}
+
+  '@unocss/reset@66.2.3':
+    resolution: {integrity: sha512-szULFXX4IvNMQ+HKbu9p0KVME2pVhZBh9zQ1CSqA/TV9s2DRVMbNO5nVYjjBDkTnvr6N4IgWEGFVK+XVVITJRQ==}
 
   '@unocss/rule-utils@66.1.2':
     resolution: {integrity: sha512-nn0ehvDh7yyWq2mcBDLVpmMAivjRATUroZ8ETinyN1rmfsGesm71R0d1gV3K+Z6YC7a3+dMLc+/qzI7VK3AG/Q==}
@@ -1222,6 +1228,8 @@ snapshots:
       '@unocss/preset-wind3': 66.1.2
 
   '@unocss/reset@66.1.2': {}
+
+  '@unocss/reset@66.2.3': {}
 
   '@unocss/rule-utils@66.1.2':
     dependencies:
