@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div>
+    <div class="wfull h20 bg-red">
         <span>123</span>
         <i i-mdi:airplane-clock />
     </div>
