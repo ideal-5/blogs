@@ -1,7 +1,4 @@
 <script setup lang="ts">
-    import gsap from 'gsap'
-    import { SplitText } from 'gsap/SplitText'
-    import { onMounted } from 'vue'
     import { useDark, useToggle } from '@vueuse/core'
 
     const isDark = useDark({
@@ -11,34 +8,6 @@
         valueLight: 'light',
     })
     const toggleDark = useToggle(isDark)
-    onMounted(() => {
-        gsap.registerPlugin(SplitText)
-
-        const segmenter = new Intl.Segmenter('zh', { granularity: 'word' })
-        document.fonts.ready.then(() => {
-            gsap.set('.split', { opacity: 1 })
-            SplitText.create('.split', {
-                type: 'words',
-                wordsClass: 'word',
-                prepareText: (text, _el) => {
-                    return [...segmenter.segment(text)]
-                        .map(s => s.segment)
-                        .join(String.fromCharCode(8204))
-                },
-                wordDelimiter: { delimiter: /\u200c/, replaceWith: '' },
-                autoSplit: true,
-                onSplit: self => {
-                    return gsap.from(self.words, {
-                        y: 50,
-                        opacity: 0,
-                        stagger: 0.1,
-                        ease: 'back',
-                    })
-                },
-            })
-        })
-    })
-
     const changeDark = (event: MouseEvent) => {
         const transition = document.startViewTransition(() => {
             toggleDark()
@@ -76,16 +45,16 @@
 
 <template>
     <div class="size-full h-100vh text-#FFFCE1 bg-#0E100F lt-sm:bg-red f-c-c dark:bg-red">
-        <div class="split text-10">
-            大漠孤洲起星芒，天外孤魂牵断肠 自身本是轮回客，不知何处话桑麻
+        <div class="text-10" ref="split" v-textUpward>
+            历经五十四次劫，劫云仍旧漫遮天。 胸中魂光压众生，拳里剑气纵北原。
+            时来时去四百载，无死何能生新颜？ 弃此残躯换清风，卷席苍穹复光年！
         </div>
         <button @click="changeDark" class="p-2 rounded-lg bg-gray-200">
             {{ isDark ? '🌙' : '☀️' }}
         </button>
-
-        <a href="https://beian.miit.gov.cn" target="_blank" class="fixed bottom-1"
-            >陕ICP备2025071212号</a
-        >
+        <a href="https://beian.miit.gov.cn" target="_blank" class="fixed bottom-1">
+            陕ICP备2025071212号
+        </a>
     </div>
 </template>
 
