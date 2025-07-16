@@ -41,10 +41,13 @@
             )
         })
     }
+
+    const router = useRouter()
 </script>
 
 <template>
     <div class="size-full h-100vh text-#FFFCE1 bg-#0E100F lt-sm:bg-red f-c-c dark:bg-red">
+        <div class="wf h20 bg-#fff" @click="router.push({ name: 'blog-list' })">去往博客</div>
         <div class="text-10" ref="split" v-textUpward>
             历经五十四次劫，劫云仍旧漫遮天。 胸中魂光压众生，拳里剑气纵北原。
             时来时去四百载，无死何能生新颜？ 弃此残躯换清风，卷席苍穹复光年！
